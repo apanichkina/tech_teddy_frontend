@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+static/js/build.js
+static/js/build.js.map
+npm-debug.log
+.idea/.name
+.idea/misc.xml
+.idea/modules.xml
+.idea/tech_teddy_frontend.iml
+.idea/vcs.xml
+.idea/workspace.xml
