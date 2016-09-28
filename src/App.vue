@@ -1,14 +1,23 @@
 <template>
   <div>
-    <a v-link="{ path: '/home' }">
-      <p>{{ productName }}</p>
-    </a>
-    <p>
-      <a v-link="{ path: '/signup' }">Sign up</a>
-      <a v-link="{ path: '/signin' }">Sign in</a>
-    </p>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" v-link="{ path: '/home' }">
+          <img class="emblem" alt="Brand" src="/static/img/baby.png"/>
+        </a>
+        <a class="navbar-brand" v-link="{ path: '/home' }">{{ productName }}</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a v-link="{ path: '/signup' }">Sign up</a></li>
+        <li><a v-link="{ path: '/signin' }">Sign in</a></li>
+      </ul>
+    </div>
+  </nav>
+
     <router-view></router-view>
   </div>
+
 </template>
 
 <script>
@@ -23,14 +32,11 @@ module.exports= {
 </script>
 
 <style>
-  @charset "UTF-8";
-  /*@font-face {*/
-    /*font-family: 'Lato';*/
-    /*font-style: normal;*/
-    /*font-weight: 100;*/
-    /*src: url(../static/fonts/lato-hairline.ttf);*/
-  /*}*/
   h1 {
     font-family: 'Helvetica', 'Arial';
+  }
+  .emblem {
+    max-height: 4rem;
+    margin-top: -1rem;
   }
 </style>

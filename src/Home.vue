@@ -19,8 +19,6 @@ module.exports= {
       this.$http.get(this.url_posts).then(
               function (response) {
                 this.posts = response.data;
-                //все ок
-                console.log(response)
               },
               function (response) {
                 //ошибка
