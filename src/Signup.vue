@@ -48,11 +48,7 @@ module.exports= {
 </script>
 
 <style>
-  body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
-  }
+
 
   .form {
     max-width: 330px;
