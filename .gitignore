@@ -9,3 +9,5 @@ npm-debug.log
 .idea/tech_teddy_frontend.iml
 .idea/vcs.xml
 .idea/workspace.xml
+/src/Template.vue
+.idea/jsLinters/

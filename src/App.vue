@@ -1,25 +1,36 @@
 <template>
-  <div id="app">
-    <h1>{{ msg }}</h1>
+  <div>
+    <a v-link="{ path: '/home' }">
+      <p>{{ productName }}</p>
+    </a>
+    <p>
+      <a v-link="{ path: '/signup' }">Sign up</a>
+      <a v-link="{ path: '/signin' }">Sign in</a>
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
+module.exports= {
+  data: function() {
     return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'Helloe!'
+      productName: 'Умный мишка'
     }
   }
+
 }
 </script>
 
 <style>
-body {
-  font-family: Helvetica, sans-serif;
-}
+  @charset "UTF-8";
+  /*@font-face {*/
+    /*font-family: 'Lato';*/
+    /*font-style: normal;*/
+    /*font-weight: 100;*/
+    /*src: url(../static/fonts/lato-hairline.ttf);*/
+  /*}*/
+  h1 {
+    font-family: 'Helvetica', 'Arial';
+  }
 </style>
