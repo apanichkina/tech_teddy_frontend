@@ -6,10 +6,12 @@
       <form class="form">
         <h2 class="form-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Почта" required autofocus>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Почта"  v-model="form.name" required autofocus>
+
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" v-model="form.password" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @click.prevent="submitLogin()">Sign in</button>
       </form>
 
     </div>
@@ -27,13 +29,33 @@
 module.exports= {
   data: function() {
     return {
-      name: ''
+      name: '',
+      url_login: 'http://hardteddy.ru/api/user/login',
+      form: {
+        name: '',
+        password: ''
+      }
     }
   },
   methods: {
     onClick: function() {
       console.log(this.name)
+    },
+    submitLogin: function() {
+      var form = {
+        name: this.form.name,
+        password: this.form.password
+      };
+      console.log(form);
+      this.$http.post(this.url_login, form).then(
+              function(response){
+                console.log("login ok!")
+              },
+              function(error) {
+                console.log("login fail!")
+              })
     }
+
   }
 }
 </script>

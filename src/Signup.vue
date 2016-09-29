@@ -22,13 +22,13 @@
 
     </div>
 
-    <form>
-      <h1>{{ name }}</h1>
-      <p><b>Ваше имя:</b><br>
-        <input type="text" v-model="name" size="40">
-        <button @click.prevent="onClick()">Sign up</button>
-      </p>
-    </form>
+    <!--<form>-->
+      <!--<h1>{{ name }}</h1>-->
+      <!--<p><b>Ваше имя:</b><br>-->
+        <!--<input type="text" v-model="name" size="40">-->
+        <!--<button @click.prevent="onClick()">Sign up</button>-->
+      <!--</p>-->
+    <!--</form>-->
   </div>
 </template>
 
