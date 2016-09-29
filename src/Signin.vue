@@ -24,10 +24,10 @@ module.exports= {
   data: function() {
     return {
       name: '',
-      url_login: 'http://hardteddy.ru/api/user/login',
+      url_login: 'http://localhost:8081/api/user/login',
       form: {
-        name: '',
-        password: ''
+        "name": '',
+        "password": ''
       }
     }
   },
@@ -36,18 +36,20 @@ module.exports= {
       console.log(this.name)
     },
     submitLogin: function() {
-      var form = {
-        name: this.form.name,
-        password: this.form.password
+      var data = {
+        "name": this.form.name,
+        "password": this.form.password
       };
-      console.log(form);
-      this.$http.post(this.url_login, form).then(
+      this.$http.post(this.url_login, data, {
+        emulateJSON: true
+      }).then(
               function(response){
-                console.log("login ok!")
+                console.log(response)
               },
               function(error) {
-                console.log("login fail!")
-              })
+                console.log("Error:");
+                console.log(error)
+              });
     }
 
   }
