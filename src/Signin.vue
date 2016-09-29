@@ -32,11 +32,8 @@ module.exports= {
     }
   },
   methods: {
-    onClick: function() {
-      console.log(this.name)
-    },
     submitLogin: function() {
-      var data = {
+      let data = {
         "name": this.form.name,
         "password": this.form.password
       };

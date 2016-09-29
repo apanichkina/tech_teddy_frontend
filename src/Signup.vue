@@ -6,29 +6,22 @@
         <h2 class="form-heading">Please sign up</h2>
 
         <label for="inputLogin" class="sr-only">Login</label>
-        <input type="text" id="inputLogin" class="form-control" placeholder="Логин" required autofocus>
+        <input type="text" id="inputLogin" class="form-control" placeholder="Логин" v-model="form.name" required autofocus>
 
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Почта" required autofocus>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Почта" v-model="form.email" required autofocus>
 
         <label for="inputPassword1" class="sr-only">Password</label>
-        <input type="password" id="inputPassword1" class="form-control" placeholder="Пароль" required>
+        <input type="password" id="inputPassword1" class="form-control" placeholder="Пароль" v-model="form.password1" required>
 
         <label for="inputPassword2" class="sr-only">Confurm password</label>
-        <input type="password" id="inputPassword2" class="form-control" placeholder="Пароль еще раз" required>
+        <input type="password" id="inputPassword2" class="form-control" placeholder="Пароль еще раз" v-model="form.password2" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" @click.prevent="submitSignup()">Sign up</button>
       </form>
 
     </div>
 
-    <!--<form>-->
-      <!--<h1>{{ name }}</h1>-->
-      <!--<p><b>Ваше имя:</b><br>-->
-        <!--<input type="text" v-model="name" size="40">-->
-        <!--<button @click.prevent="onClick()">Sign up</button>-->
-      <!--</p>-->
-    <!--</form>-->
   </div>
 </template>
 
@@ -36,15 +29,39 @@
 module.exports= {
   data: function() {
     return {
-      name: ''
+      name: '',
+      url_login: 'http://localhost:8081/api/user/register',
+      form: {
+        "name": '',
+        "email": '',
+        "password1": '',
+        "password2": ''
+      }
     }
   },
   methods: {
-    onClick: function() {
-      console.log(this.name)
+    submitSignup: function() {
+
+      let data = {
+        "name": this.form.name,
+        "email": this.form.email,
+        "password1": this.form.password1,
+        "password2": this.form.password1
+      };
+      console.log(data)
+      this.$http.post(this.url_login, data, {
+        emulateJSON: true
+      }).then(
+              function(response){
+                console.log(response)
+              },
+              function(error) {
+                console.log("Error:");
+                console.log(error)
+              });
+    }
     }
   }
-}
 </script>
 
 <style>
