@@ -9,8 +9,8 @@
         <a class="navbar-brand" v-link="{ path: '/home' }">{{ productName }}</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a v-link="{ path: '/signup' }">Sign up</a></li>
-        <li><a v-link="{ path: '/signin' }">Sign in</a></li>
+        <li><a v-link="{ path: '/signup' }">Регистрация</a></li>
+        <li><a v-link="{ path: '/signin' }">Войти</a></li>
       </ul>
     </div>
   </nav>
